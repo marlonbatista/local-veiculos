@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+    (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>JAV CAR</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer mode="side">
+    <mat-nav-list>
+      <div *ngFor="let item of menu">
+        <h3 mat-subheader>{{item.group}}</h3>
+        <a *ngFor="let option of item.items" mat-list-item [routerLink]="option.url" (click)="sidenav.toggle()">
+          <mat-icon>{{option.icon}}</mat-icon>
+          {{option.label}}
+        </a>
+      </div>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white"></ngx-spinner>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+
+</mat-drawer-container>
