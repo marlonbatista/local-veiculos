@@ -1,0 +1,38 @@
+<mat-card style="height: 315px;">
+  <div class="container">
+    <mat-form-field appearance="outline" class="medium-width" col-50>
+      <mat-label>Codigo</mat-label>
+      <input matInput  type="number" placeholder="preencha o nome do cliente" [(ngModel)]="model.cod_cliente">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="buscarCliente()">Pesquisar</button>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="preencha o nome do cliente" [(ngModel)]="model.nome" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width" col-50>
+      <mat-label>CPF</mat-label>
+      <input matInput placeholder="preencha o cpf" [(ngModel)]="model.cpf" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Data de Nascimento</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="model.data_nascimento">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-checkbox class="example-margin" [(ngModel)]="model.status">
+      Ativo
+    </mat-checkbox>
+    <div class="toolbar___form">
+      <button mat-raised-button (click)="limparModel()">Novo</button>
+      <button mat-raised-button color="warn" (click)="delete()">Excluir</button>
+      <button mat-raised-button color="primary" (click)="save()">Salvar</button>
+    </div>
+  </div>
+</mat-card>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="large" color="#fff" type="square-jelly-box" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+  </ngx-spinner>
