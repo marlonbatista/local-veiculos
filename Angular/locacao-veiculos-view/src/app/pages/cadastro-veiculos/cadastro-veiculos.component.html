@@ -1,0 +1,66 @@
+<mat-card style="height: 600px;">
+  <div class="container">
+    <mat-form-field appearance="outline" class="medium-width" col-50>
+      <mat-label>Codigo</mat-label>
+      <input matInput type="number" [(ngModel)]="model.cod_veiculo">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="buscarVeiculo()">Pesquisar</button>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="preencha o nome do cliente" maxlength="100" [(ngModel)]="model.nome" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width" col-50>
+      <mat-label>Marca</mat-label>
+      <input matInput placeholder="informe a marca" maxlength="30" [(ngModel)]="model.marca" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width" col-50>
+      <mat-label>Modelo</mat-label>
+      <input matInput placeholder="informe o modelo do veículo" type="number" min="2000" max="2100"
+        [(ngModel)]="model.modelo" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width" col-50>
+      <mat-label>Ano</mat-label>
+      <input matInput placeholder="informe o ano do veículo" type="number" min="2000" max="2100" [(ngModel)]="model.ano"
+        required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width" col-50>
+      <mat-label>Valor diária</mat-label>
+      <input matInput placeholder="informe o valor da diária do veículo" type="number" min="0"
+        [(ngModel)]="model.valor_diaria" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="aling-margin">
+      <mat-label>Combustivel</mat-label>
+      <mat-select [(ngModel)]="model.combustivel">
+        <mat-option value="Etanol">Etanol</mat-option>
+        <mat-option value="Gasolina">Gasolina</mat-option>
+        <mat-option value="Flex">Flex</mat-option>
+        <mat-option value="GNV">GNV</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="aling-margin">
+      <label id="example-radio-group-label">Status</label>
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+        [(ngModel)]="model.status">
+        <mat-radio-button class="example-radio-button" [value]="true">
+          Disponível
+        </mat-radio-button>
+        <mat-radio-button class="example-radio-button" [value]="false">
+          Alugado
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="toolbar___form">
+      <button mat-raised-button (click)="limparModel()">Novo</button>
+      <button mat-raised-button color="warn" (click)="delete()">Excluir</button>
+      <button mat-raised-button color="primary" (click)="save()">Salvar</button>
+    </div>
+  </div>
+</mat-card>
