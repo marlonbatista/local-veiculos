@@ -86,6 +86,8 @@ export class DevolucaoVeiculoComponent implements OnInit {
       data_locacao: null,
       valor_total: 0.00,
       status: true,
+      nome_cliente: '',
+      nome_veiculo: '',
     };
   }
 
