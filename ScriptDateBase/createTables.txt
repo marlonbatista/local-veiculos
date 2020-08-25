@@ -23,3 +23,11 @@ CREATE TABLE ALUGUEL(
                data_devolucao DATE NULL,
                valor_total DECIMAL(10,2),
                status BIT NOT NULL)
+
+ALTER TABLE ALUGUEL
+            ADD FOREIGN KEY (cod_cliente) 
+                REFERENCES CLIENTE(cod_cliente)
+                
+ALTER TABLE ALUGUEL
+            ADD FOREIGN KEY (cod_veiculo) 
+                REFERENCES VEICULO(cod_veiculo)
