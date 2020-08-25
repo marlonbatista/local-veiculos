@@ -1,0 +1,74 @@
+<mat-card style="height: 130%;">
+    <div class="container">
+      <mat-form-field appearance="outline" class="full-width" col-50>
+        <mat-label>Codigo</mat-label>
+        <input matInput type="number" [(ngModel)]="model.cod_aluguel">
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" (click)="buscarAluguel()">Pesquisar</button>
+      
+      <mat-form-field appearance="outline" class="medium-width" col-100>
+        <mat-label>Nome do cliente</mat-label>
+        <input matInput placeholder="preencha o nome do cliente" type="number" [(ngModel)]="model.nome_cliente" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="medium-width" col-100>
+        <mat-label>Nome do veículo</mat-label>
+        <input matInput placeholder="preencha o nome do veículo" type="number" [(ngModel)]="model.nome_veiculo" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Código do cliente</mat-label>
+        <input matInput placeholder="preencha o código do cliente" type="number" [(ngModel)]="model.cod_cliente" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="medium-width" col-50>
+        <mat-label>Código do Veículo</mat-label>
+        <input matInput placeholder="preencha o código do veículo" type="number" [(ngModel)]="model.cod_veiculo" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="medium-width" class="medium-width" col-50>
+        <mat-label>Valor diária</mat-label>
+        <input matInput placeholder="informe o valor da diária do veículo" type="number" min="0"
+          [(ngModel)]="model.valor_total" readonly>
+      </mat-form-field>
+  
+      <div class="aling-margin">
+        <mat-form-field appearance="fill" class="medium-width" col-30>
+          <mat-label>Data de locação</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="model.data_locacao">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+  
+      <div class="aling-margin">
+        <mat-form-field appearance="fill" *ngIf="!model.status" class="medium-width" col-30>
+          <mat-label>Data de devolução</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="model.data_devolucao">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+  
+      <div class="aling-margin">
+        <label id="example-radio-group-label">Status</label>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+          [(ngModel)]="model.status">
+          <mat-radio-button class="example-radio-button" [value]="true">
+            Aberto
+          </mat-radio-button>
+          <mat-radio-button class="example-radio-button" [value]="false">
+            Concluído
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <div class="toolbar___form">
+        <button mat-raised-button (click)="limparModel()">Novo</button>
+        <button mat-raised-button color="warn" (click)="delete()">Excluir</button>
+        <button mat-raised-button color="primary" (click)="save()">Salvar</button>
+      </div>
+    </div>
+  </mat-card>
+  
