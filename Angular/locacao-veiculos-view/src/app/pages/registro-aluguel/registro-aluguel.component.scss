@@ -1,0 +1,29 @@
+@import '../../shared/global.scss';
+
+.example-margin {
+  margin: 0 12px;
+}
+
+.my-snack-bar {
+  background-color: #3f51b5;
+  color: white;
+}
+
+.row{
+    display: flex;
+    justify-content: space-around;
+}
+
+.aling-margin{
+    margin: 0 25px;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
