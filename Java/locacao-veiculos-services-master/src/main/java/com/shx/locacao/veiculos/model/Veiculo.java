@@ -45,6 +45,9 @@ public class Veiculo implements Serializable {
 	@NotNull
 	private float valor_diaria;
 	
+	@NotNull
+	private boolean status;
+	
 	
 	
 	@Override
@@ -126,15 +129,27 @@ public class Veiculo implements Serializable {
 	public void setValor_diaria(float valor_diaria) {
 		this.valor_diaria = valor_diaria;
 	}
+		
+	public boolean isStatus() {
+		return status;
+	}
+	
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 	
 	public Veiculo() {
 	}
 	
+	
 	@Override
 	public String toString() {
 		return "Veiculo [cod_veiculo=" + cod_veiculo + ", marca=" + marca + ", nome=" + nome + ", ano=" + ano
-				+ ", modelo=" + modelo + ", combustivel=" + combustivel + ", valor_diaria=" + valor_diaria + "]";
+				+ ", modelo=" + modelo + ", combustivel=" + combustivel + ", valor_diaria=" + valor_diaria + ", status="
+				+ status + "]";
 	}
+	
+	
 	
 	
 }
