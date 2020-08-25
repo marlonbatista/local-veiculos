@@ -1,0 +1,25 @@
+CREATE TABLE CLIENTE(
+               cod_cliente INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
+               cpf  VARCHAR(11) NOT NULL,
+               nome varchar(100) NOT NULL,
+               data_Nascimento DATE NOT NULL,
+               status BIT NOT NULL)
+
+CREATE TABLE VEICULO(
+               cod_veiculo INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
+               nome  VARCHAR(100) NOT NULL,
+               modelo int NOT NULL,
+               marca VARCHAR(30) NOT NULL,
+               ano int NOT NULL,
+               combustivel varchar(10) NOT NULL,
+               valor_diaria DECIMAL(10,2) NOT NULL
+               status BIT NOT NULL)
+
+CREATE TABLE ALUGUEL(
+               cod_aluguel INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
+               cod_cliente INTEGER NOT NULL,
+               cod_veiculo INTEGER NOT NULL,
+               data_locacao DATE NOT NULL,
+               data_devolucao DATE NULL,
+               valor_total DECIMAL(10,2),
+               status BIT NOT NULL)
