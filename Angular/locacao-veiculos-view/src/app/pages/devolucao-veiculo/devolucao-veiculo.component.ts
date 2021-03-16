@@ -40,7 +40,7 @@ export class DevolucaoVeiculoComponent implements OnInit {
       return;
     }
     this.spinner.show();
-    const result = await this.AluguelSrv.GetDeliveryByIdAluguel(''+ this.model.cod_aluguel);
+    const result = await this.AluguelSrv.GetDeliveryByIdAluguel('' + this.model.cod_aluguel);
     if (!result.success || !result.data) {
       this.spinner.hide();
       this.chamarSnakBar('Aluguel não localizado');
@@ -84,6 +84,8 @@ export class DevolucaoVeiculoComponent implements OnInit {
       cod_veiculo: null,
       data_devolucao: null,
       data_locacao: null,
+      nome_cliente: '',
+      nome_veiculo: '',
       valor_total: 0.00,
       status: true,
     };
