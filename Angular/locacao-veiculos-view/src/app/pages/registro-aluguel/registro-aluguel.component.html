@@ -9,33 +9,36 @@
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Cliente</mat-label>
-      <input matInput placeholder="preencha o código do cliente" type="number" [(ngModel)]="model.cod_cliente" required>
+      <input matInput placeholder="preencha o código do cliente" type="number" 
+      [(ngModel)]="model.cod_cliente" required>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="medium-width" col-50>
       <mat-label>Veículo</mat-label>
-      <input matInput placeholder="preencha o código do veículo" type="number" [(ngModel)]="model.cod_veiculo" required>
+      <input matInput placeholder="preencha o código do veículo" type="number" 
+      [(ngModel)]="model.cod_veiculo" required>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="medium-width" class="medium-width" col-50>
       <mat-label>Valor diária</mat-label>
-      <input matInput placeholder="informe o valor da diária do veículo" type="number" min="0"
-        [(ngModel)]="model.valor_total" readonly>
+      <input matInput placeholder="informe o valor da diária do veículo" 
+        readonly="!model.status" type="number" min="0"
+        [(ngModel)]="model.valor_total">
     </mat-form-field>
 
     <div class="aling-margin">
       <mat-form-field appearance="fill" class="medium-width" col-30>
         <mat-label>Data de locação</mat-label>
-        <input matInput [matDatepicker]="picker" [(ngModel)]="model.data_locacao">
+        <input matInput [matDatepicker]="picker"  [(ngModel)]="model.data_locacao">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </div>
 
     <div class="aling-margin">
-      <mat-form-field appearance="fill" *ngIf="model.cod_aluguel" class="medium-width" col-30>
+      <mat-form-field appearance="fill" *ngIf="model.data_devolucao && model.status === false" class="medium-width" col-30>
         <mat-label>Data de devolução</mat-label>
-        <input matInput [matDatepicker]="picker" [(ngModel)]="model.data_devolucao">
+        <input matInput [matDatepicker]="picker" disabled [(ngModel)]="model.data_devolucao">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -44,7 +47,7 @@
     <div class="aling-margin">
       <label id="example-radio-group-label">Status</label>
       <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
-        [(ngModel)]="model.status">
+        [(ngModel)]="model.status" readonly="!model.status">
         <mat-radio-button class="example-radio-button" [value]="true">
           Aberto
         </mat-radio-button>

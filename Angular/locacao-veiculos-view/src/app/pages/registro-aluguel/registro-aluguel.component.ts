@@ -25,7 +25,7 @@ export class RegistroAluguelComponent implements OnInit {
     data_devolucao: null,
     data_locacao: null,
     valor_total: null,
-    status: false,
+    status: true,
   };
 
   ngOnInit() {
