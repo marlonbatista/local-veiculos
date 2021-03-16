@@ -15,10 +15,10 @@ export class RelatorioComponent implements OnInit {
   displayedColumns: string[] = [
     'cod_aluguel',
     'cod_cliente',
-    'cod_veiculo',
-    'data_devolucao',
-    'data_locacao',
     'nome_cliente',
+    'cod_veiculo',
+    'data_locacao',
+    'data_devolucao',
     'status',
     'valor_total',
   ];
@@ -34,7 +34,7 @@ export class RelatorioComponent implements OnInit {
     data_devolucao: null,
     data_locacao: null,
     nome_cliente: '',
-    status: false,
+    status: true,
     valor_total: null
   };
 
