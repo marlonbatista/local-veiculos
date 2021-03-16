@@ -10,9 +10,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.shx.locacao.veiculos.model.Aluguel;
-import com.shx.locacao.veiculos.model.Cliente;
-import com.shx.locacao.veiculos.model.Devolucao;
-import com.shx.locacao.veiculos.model.Veiculo;
 
 @Repository
 public class AluguelRepository {
@@ -20,7 +17,6 @@ public class AluguelRepository {
 	@PersistenceContext
 	private EntityManager em;
 	private VeiculoRepository vr;
-	private ClienteRepository cr;
 	
 	public List<Aluguel> findAll() {
 		try {
@@ -57,29 +53,6 @@ public class AluguelRepository {
 		} finally {
 			em.close();
 		}
-	}
-	
-	public Devolucao findDevolutationByAluguel(Aluguel aluguel) {			
-			return this.constructorDelovucao(aluguel); 
-	}
-	
-	public Devolucao findDevolutationById(Integer id) {
-			Aluguel al = new Aluguel();
-			al = this.findById(id);
-
-			return this.constructorDelovucao(al); 
-	}
-	
-	public Devolucao constructorDelovucao(Aluguel al) {
-		Devolucao dev = this.transformRent(al);
-		Veiculo vei = new Veiculo();
-		Cliente cl = new Cliente();
-		vei = vr.findById(dev.getCod_veiculo());
-		cl = cr.findActiveClienteById(dev.getCod_cliente());
-		dev.setNome_veiculo(vei.getNome());
-		dev.setNome_cliente(cl.getNome());
-		
-		return dev;
 	}
 	
 	public List<Aluguel> findAluguelByIdCliente(Integer id) {
@@ -120,15 +93,4 @@ public class AluguelRepository {
 		return aluguel;
 	}
 	
-	private Devolucao transformRent(Aluguel aluguel) {
-		Devolucao dev = new Devolucao();
-		dev.setCod_aluguel(aluguel.getCod_aluguel());
-		dev.setCod_cliente(aluguel.getCod_cliente());
-		dev.setData_devolucao(aluguel.getData_devolucao());
-		dev.setData_locacao(aluguel.getData_locacao());
-		dev.setStatus(aluguel.isStatus());
-		dev.setCod_veiculo(aluguel.getCod_veiculo());
-		dev.setValor_total(aluguel.getValor_total());
-		return dev;
-	}
 }
