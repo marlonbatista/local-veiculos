@@ -8,12 +8,12 @@
     <button mat-raised-button color="primary" (click)="buscarCliente()">Pesquisar</button>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Nome</mat-label>
-      <input matInput placeholder="preencha o nome do cliente" [(ngModel)]="model.nome" required>
+      <input matInput type="text" placeholder="preencha o nome do cliente" [(ngModel)]="model.nome" required>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width" col-50>
       <mat-label>CPF</mat-label>
-      <input matInput placeholder="preencha o cpf" [(ngModel)]="model.cpf" required>
+      <input matInput type="text" placeholder="preencha o cpf" [(ngModel)]="model.cpf" required>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
