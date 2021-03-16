@@ -22,7 +22,7 @@ export class CadastroVeiculosComponent implements OnInit {
     modelo: null,
     nome: '',
     valor_diaria: null,
-    status: true
+    status: false
   };
 
   constructor(
@@ -99,7 +99,7 @@ export class CadastroVeiculosComponent implements OnInit {
       return false;
     }
     if (this.model.modelo < this.model.ano) {
-      this.chamarSnakBar('O modelo deve ser igual o ano do veículo');
+      this.chamarSnakBar('O modelo deve ser igual ou maior que o ano do veículo');
       return false;
     }
     if (!this.model.marca) {
