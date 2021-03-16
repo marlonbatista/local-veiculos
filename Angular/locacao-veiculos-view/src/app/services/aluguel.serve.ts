@@ -23,16 +23,16 @@ export class AluguelService extends BaseService<Aluguel> {
 
 
   GetDeliveryByIdAluguel(id: string): Promise<IResultHttp> {
-    return this.http.get(`${environment.url_api}/aluguel/devolucao/${id}`)
+    return this.http.get(`${environment.url_api}/aluguel/devolucao/${id}`);
   }
 
   GetAluguelById(id: string): Promise<IResultHttp> {
-    return this.http.get(`${environment.url_api}/aluguel/cliente/${id}`)
+    return this.http.get(`${environment.url_api}/aluguel/cliente/${id}`);
   }
 
   deliver(model: any, headers?: HttpHeaders): Promise<IResultHttp> {
     const header = this.createHeader(headers);
-    const url = `${environment.url_api}/aluguel/devolucao/`;
+    const url = `${environment.url_api}/aluguel/`;
     return new Promise(async (resolve) => {
       try {
         this.spinner.show();
